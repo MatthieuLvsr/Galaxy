@@ -139,6 +139,7 @@ gui.addColor(parameters, 'outsideColor').name("Outside color").onFinishChange(ge
 gui.add(parameters,'rotating')
 gui.add(parameters,'texture').options(texturesNames).onFinishChange(()=>{index = texturesNames.findIndex(texture => texture === parameters.texture);generateGalaxy()})
 gui.add(parameters,'flip')
+gui.close()
 /**
  * Sizes
  */
