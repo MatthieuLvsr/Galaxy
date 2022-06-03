@@ -11,19 +11,19 @@ import gsap from 'gsap'
 const textureLoader = new THREE.TextureLoader()
 
 // Particles
-const texture1 = textureLoader.load('/textures/particles/1.png')
-const texture2 = textureLoader.load('/textures/particles/2.png')
-const texture3 = textureLoader.load('/textures/particles/3.png')
-const texture4 = textureLoader.load('/textures/particles/4.png')
-const texture5 = textureLoader.load('/textures/particles/5.png')
-const texture6 = textureLoader.load('/textures/particles/6.png')
-const texture7 = textureLoader.load('/textures/particles/7.png')
-const texture8 = textureLoader.load('/textures/particles/8.png')
-const texture9 = textureLoader.load('/textures/particles/9.png')
-const texture10 = textureLoader.load('/textures/particles/10.png')
-const texture11 = textureLoader.load('/textures/particles/11.png')
-const texture12 = textureLoader.load('/textures/particles/12.png')
-const texture13 = textureLoader.load('/textures/particles/13.png')
+const texture1 = textureLoader.load('./textures/particles/1.png')
+const texture2 = textureLoader.load('./textures/particles/2.png')
+const texture3 = textureLoader.load('./textures/particles/3.png')
+const texture4 = textureLoader.load('./textures/particles/4.png')
+const texture5 = textureLoader.load('./textures/particles/5.png')
+const texture6 = textureLoader.load('./textures/particles/6.png')
+const texture7 = textureLoader.load('./textures/particles/7.png')
+const texture8 = textureLoader.load('./textures/particles/8.png')
+const texture9 = textureLoader.load('./textures/particles/9.png')
+const texture10 = textureLoader.load('./textures/particles/10.png')
+const texture11 = textureLoader.load('./textures/particles/11.png')
+const texture12 = textureLoader.load('./textures/particles/12.png')
+const texture13 = textureLoader.load('./textures/particles/13.png')
 
 const textures = [texture1,texture2,texture3,texture4,texture5,texture6,texture7,texture8,texture9,texture10,texture11,texture12,texture13]
 
