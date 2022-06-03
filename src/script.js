@@ -210,8 +210,8 @@ const tick = () =>
     lastElapsedTime = elapsedTime
 
     // Update camera
-    cameraGroup.position.x += (mouse.x*0.2 - cameraGroup.position.x) * 0.05
-    cameraGroup.position.y += (mouse.y*0.2 - cameraGroup.position.y) * 0.05
+    cameraGroup.position.x += (mouse.x*0.3 - cameraGroup.position.x) * 0.05
+    cameraGroup.position.y += (mouse.y*0.3 - cameraGroup.position.y) * 0.05
     // Update controls
     controls.update()
     // console.log(camera.position);
