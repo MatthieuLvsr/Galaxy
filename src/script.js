@@ -11,19 +11,20 @@ import gsap from 'gsap'
 const textureLoader = new THREE.TextureLoader()
 
 // Particles
-const texture1 = textureLoader.load('./textures/particles/1.png')
-const texture2 = textureLoader.load('./textures/particles/2.png')
-const texture3 = textureLoader.load('./textures/particles/3.png')
-const texture4 = textureLoader.load('./textures/particles/4.png')
-const texture5 = textureLoader.load('./textures/particles/5.png')
-const texture6 = textureLoader.load('./textures/particles/6.png')
-const texture7 = textureLoader.load('./textures/particles/7.png')
-const texture8 = textureLoader.load('./textures/particles/8.png')
-const texture9 = textureLoader.load('./textures/particles/9.png')
-const texture10 = textureLoader.load('./textures/particles/10.png')
-const texture11 = textureLoader.load('./textures/particles/11.png')
-const texture12 = textureLoader.load('./textures/particles/12.png')
-const texture13 = textureLoader.load('./textures/particles/13.png')
+let loaded = 0
+const texture1 = textureLoader.load('./textures/particles/1.png',()=>{loaded++})
+const texture2 = textureLoader.load('./textures/particles/2.png',()=>{loaded++})
+const texture3 = textureLoader.load('./textures/particles/3.png',()=>{loaded++})
+const texture4 = textureLoader.load('./textures/particles/4.png',()=>{loaded++})
+const texture5 = textureLoader.load('./textures/particles/5.png',()=>{loaded++})
+const texture6 = textureLoader.load('./textures/particles/6.png',()=>{loaded++})
+const texture7 = textureLoader.load('./textures/particles/7.png',()=>{loaded++})
+const texture8 = textureLoader.load('./textures/particles/8.png',()=>{loaded++})
+const texture9 = textureLoader.load('./textures/particles/9.png',()=>{loaded++})
+const texture10 = textureLoader.load('./textures/particles/10.png',()=>{loaded++})
+const texture11 = textureLoader.load('./textures/particles/11.png',()=>{loaded++})
+const texture12 = textureLoader.load('./textures/particles/12.png',()=>{loaded++})
+const texture13 = textureLoader.load('./textures/particles/13.png',()=>{loaded++})
 
 const textures = [texture1,texture2,texture3,texture4,texture5,texture6,texture7,texture8,texture9,texture10,texture11,texture12,texture13]
 
@@ -110,7 +111,7 @@ const generateGalaxy = () =>
     particles = new THREE.Points(particlesGeometry,particlesMaterial)
     scene.add(particles)
 }
-generateGalaxy()
+// generateGalaxy()
 
 parameters.flip = ()=>{
     gsap.to(particles.rotation,{
@@ -211,6 +212,11 @@ const tick = () =>
     controls.update()
 
     // Update galaxy
+    if(loaded === 13)
+    {
+        loaded = 0
+        generateGalaxy()
+    }
     if(particles != null && parameters.rotating)
     {
         particles.rotation.y += deltaTime/10
