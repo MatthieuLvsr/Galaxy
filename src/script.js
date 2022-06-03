@@ -43,7 +43,9 @@ const scene = new THREE.Scene()
 /**
  * Galaxy
  */
+const texturesNames = ['Point','Ring','Smoke','Dot','Shine','Moon','Aim','Small shine','Shining star','Heart','Star','Stripe','Large stripe']
 const parameters = {}
+
 parameters.count = 213400
 parameters.size = 0.01
 parameters.radius = 5.81
@@ -53,7 +55,8 @@ parameters.randomness = 0.471
 parameters.randomnessPower = 2.477
 parameters.insideColor = "#e24822"
 parameters.outsideColor = "#6490c9"
-parameters.texture = 0
+let index = 0
+parameters.texture = texturesNames[0]
 parameters.rotating = true
 
 let particlesGeometry = null
@@ -101,7 +104,7 @@ const generateGalaxy = () =>
     particlesGeometry.setAttribute('position',new THREE.Float32BufferAttribute(positionArray,3))
     particlesGeometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3))
     particlesMaterial = new THREE.PointsMaterial()
-    particlesMaterial.map = textures[parameters.texture]
+    particlesMaterial.map = textures[index]
     particlesMaterial.size = parameters.size
     particlesMaterial.sizeAttenuation = true
     particlesMaterial.depthWrite = false
@@ -132,8 +135,9 @@ gui.add(parameters, 'randomness').min(0).max(1).step(0.001).name("Randomness").o
 gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).name("Center gravity").onFinishChange(generateGalaxy)
 gui.addColor(parameters, 'insideColor').name("Inside color").onFinishChange(generateGalaxy)
 gui.addColor(parameters, 'outsideColor').name("Outside color").onFinishChange(generateGalaxy)
-gui.add(parameters,'texture').min(0).max(12).step(1).onFinishChange(generateGalaxy)
+// gui.add(parameters,'texture').min(0).max(12).step(1).onFinishChange(generateGalaxy)
 gui.add(parameters,'rotating')
+gui.add(parameters,'texture').options(texturesNames).onFinishChange(()=>{index = texturesNames.findIndex(texture => texture === parameters.texture);generateGalaxy()})
 gui.add(parameters,'flip')
 /**
  * Sizes
