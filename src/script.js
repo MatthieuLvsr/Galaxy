@@ -51,12 +51,12 @@ parameters.size = 0.01
 parameters.radius = 5.81
 parameters.branch = 6
 parameters.spin = 1.19
-parameters.randomness = 0.471
+parameters.randomness = 1
 parameters.randomnessPower = 2.477
 parameters.insideColor = "#e24822"
 parameters.outsideColor = "#6490c9"
-let index = 0
-parameters.texture = texturesNames[0]
+let index = 8
+parameters.texture = texturesNames[8]
 parameters.rotating = true
 
 let particlesGeometry = null
@@ -169,9 +169,9 @@ window.addEventListener('resize', () =>
 const cameraGroup = new THREE.Group()
 scene.add(cameraGroup)
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-// camera.position.x = 3
-camera.position.y = 3
-camera.position.z = 3
+camera.position.x = 1.54433065024435
+camera.position.y = 4.519134931468185
+camera.position.z = 6.625970393518825
 cameraGroup.add(camera)
 
 // Controls
@@ -214,6 +214,7 @@ const tick = () =>
     cameraGroup.position.y += (mouse.y*0.2 - cameraGroup.position.y) * 0.05
     // Update controls
     controls.update()
+    // console.log(camera.position);
 
     // Update galaxy
     if(loaded === 13)
